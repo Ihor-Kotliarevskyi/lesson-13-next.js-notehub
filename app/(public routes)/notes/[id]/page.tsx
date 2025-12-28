@@ -1,34 +1,21 @@
-// import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
-// import { getSingleNote } from "@/lib/api";
-// import NoteDetailsClient from "./NoteDetails.client";
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import { getSingleNote } from "@/lib/api";
+import NoteDetailsClient from "./NoteDetails.client";
 
-// type Props = {
-//   params: Promise<{ id: string }>;
-// };
+type Props = {
+  params: Promise<{ id: string }>;
+};
 
-// const NoteDetails = async ({ params }: Props) => {
-//   const { id } = await params;
-//   const queryClient = new QueryClient();
+const NoteDetails = async ({ params }: Props) => {
+  const { id } = await params;
+  const queryClient = new QueryClient();
 
-//   await queryClient.prefetchQuery({
-//     queryKey: ["note", id],
-//     queryFn: () => getSingleNote(id),
-//   });
+  await queryClient.prefetchQuery({
+    queryKey: ["note", id],
+    queryFn: () => getSingleNote(id),
+  });
 
-//   return (<HydrationBoundary state={dehydrate(queryClient)}><NoteDetailsClient /></HydrationBoundary>);
-// };
+  return (<HydrationBoundary state={dehydrate(queryClient)}><NoteDetailsClient /></HydrationBoundary>);
+};
 
-// export default NoteDetails;
-
-// // type Props = {
-// //   params: Promise<{ id: string }>;
-// // };
-
-// // const NoteDetails = async ({ params }: Props) => {
-// //   const { id } = await params;
-// //   console.log('note id:', id);
-
-// //   return <><br /><div>NoteDetails: {id}</div></>;
-// // };
-
-// // export default NoteDetails;
+export default NoteDetails;
