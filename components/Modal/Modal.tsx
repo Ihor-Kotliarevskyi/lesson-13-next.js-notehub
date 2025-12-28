@@ -13,6 +13,7 @@ function Modal({ children }: Props) {
   
   const close = () => router.back();
 
+
   return (
     <div className={css.backdrop}>
       <div className={css.modal}>
