@@ -19,7 +19,9 @@ function NotFound() {
       <p className={css.description}>
         Sorry, the page you are looking for does not exist. 
       </p>
-      <p className={css.description}>You will be redirected to the main page in a few seconds...</p>
+      <p className={css.description}>
+        You will be redirected to the main page in a few seconds...
+      </p>
     </div>
   );
 }
